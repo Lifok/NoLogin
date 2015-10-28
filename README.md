@@ -6,7 +6,7 @@ It allow to retrieve minecraft Accounts logged and keep the session valid.
 It is really simple use, first you need to retrieve accounts, then validate them.
 
 ```java
-List<Account> accounts = NL1.getAccountManager.getAccounts();
+List<Account> accounts = NL1.getAccountManager().getAccounts();
 for(Account acc : accounts) 
 	{
 		if(NL1.getValidator().validate(acc))
