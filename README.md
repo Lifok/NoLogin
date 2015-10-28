@@ -8,11 +8,12 @@ It is really simple use, first you need to retrieve accounts, then validate them
 ```java
 List<Account> accounts = NL1.getAccountManager.getAccounts();
 for(Account acc : accounts) 
-{
-  if(NL1.getValidator().validate(acc) {
-    yourAccountList.add(acc);
-  }
-}
+	{
+		if(NL1.getValidator().validate(acc))
+		{
+		yourAccountList.add(acc);
+  		}
+	}
 ```
 
 Accounts contains all the variables you need for a proper launcher use.
