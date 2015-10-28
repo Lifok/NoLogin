@@ -36,5 +36,6 @@ Accounts contains all the variables you need for a proper launcher use.
 				e.printStackTrace();
 			}
 		}
+	}
 ```
 
