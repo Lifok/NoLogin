@@ -1,4 +1,4 @@
-package fr.utopics.nl1.account;
+package fr.utopics.nologin.account;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,15 +7,13 @@ import java.util.List;
 
 import org.json.JSONObject;
 
-import fr.utopics.nl1.util.Utilities;
+import fr.utopics.nologin.util.Utilities;
 
 public class AccountManager 
 {
 	private List<Account> accounts;
 
-	private static volatile AccountManager INSTANCE = null;
-
-	private AccountManager()
+	public AccountManager()
 	{
 		super();
 		accounts = new ArrayList<Account>();
@@ -25,7 +23,8 @@ public class AccountManager
 	private void retrieveAccounts() 
 	{
 		File profiles = new File(Utilities.getMinecraftDirectory(), "launcher_profiles.json");
-		try {
+		try 
+		{
 			FileInputStream fis = new FileInputStream(profiles);
 			byte[] data = new byte[(int) fis.available()];
 			fis.read(data);
@@ -33,7 +32,8 @@ public class AccountManager
 			String jsonProfiles = new String(data, "UTF-8");
 			JSONObject profilesObj = new JSONObject(jsonProfiles);
 			JSONObject authDb = profilesObj.getJSONObject("authenticationDatabase");
-			for(String accountName : authDb.keySet()) {
+			for(String accountName : authDb.keySet())
+			{
 				JSONObject obj = authDb.getJSONObject(accountName);
 				accounts.add(new Account(obj.getString("uuid"), obj.getString("displayName"), obj.getString("accessToken"), obj.getString("userid"), obj.getString("username")));
 			}
@@ -43,18 +43,9 @@ public class AccountManager
 			e.printStackTrace(); 
 		}
 	}
-
-	public static synchronized final AccountManager getInstance()
-	{
-		if (INSTANCE == null)
-		{
-			if (INSTANCE == null)
-				INSTANCE = new AccountManager();
-		}
-		return INSTANCE;
-	}
 	
-	public List<Account> getAccounts() {
+	public List<Account> getAccounts() 
+	{
 		return accounts;
 	}
 

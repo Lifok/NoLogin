@@ -1,4 +1,4 @@
-package fr.utopics.nl1.account;
+package fr.utopics.nologin.account;
 
 public class Account
 {

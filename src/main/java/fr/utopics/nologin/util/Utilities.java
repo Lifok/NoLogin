@@ -1,4 +1,4 @@
-package fr.utopics.nl1.util;
+package fr.utopics.nologin.util;
 
 import java.io.File;
 
