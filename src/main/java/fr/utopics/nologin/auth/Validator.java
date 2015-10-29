@@ -16,8 +16,8 @@ import fr.utopics.nologin.util.Utilities;
 
 public class Validator {
 
-	private static String clientToken;
-	private static Authenticator authenticator = new Authenticator(Authenticator.MOJANG_AUTH_URL, AuthPoints.NORMAL_AUTH_POINTS);
+	private String clientToken;
+	private Authenticator authenticator = new Authenticator(Authenticator.MOJANG_AUTH_URL, AuthPoints.NORMAL_AUTH_POINTS);
 
 	public Validator() 
 	{
@@ -38,7 +38,6 @@ public class Validator {
 		} 
 		catch (AuthenticationException e) 
 		{
-			e.printStackTrace();
 			return refreshToken(acc);
 		}
 	}
