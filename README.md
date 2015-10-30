@@ -19,19 +19,21 @@ for(Account acc : accounts)
 
 Accounts contains all the variables you need for a proper launcher use.
 
-###Bonus : Get the Player head for each Account
+###Bonus : Get the Player skin for each Account and draw Heads.
+
+First, you need to retrieve player skins.
 
 ```java
-	private Image[] playerHeads;
+	private Image[] playerSkins;
 
-	private void loadPlayersHeads() 
+	private void loadPlayersSkins() 
 	{
-		playerHeads = new Image[frame.getAccounts().size()];
+		playerSkins = new Image[frame.getAccounts().size()];
 		for(int i = 0; i < frame.getAccounts().size(); i++) {
 			try 
 			{
 				URL url = new URL("http://skins.minecraft.net/MinecraftSkins/" + frame.getAccounts().get(i).getDisplayName() + ".png");
-				playerHeads[i] = ImageIO.read(url);
+				playerSkins[i] = ImageIO.read(url);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -41,3 +43,10 @@ Accounts contains all the variables you need for a proper launcher use.
 	}
 ```
 
+Then, you draw them (using Graphics for exemple) :
+
+```java
+		for(int i =0; i < playerHeads.length; i++) {
+			g.drawImage(playerHeads[i], x + i * size, y, (x + size) + i * size, y + size, 8, 8, 16, 16, this);
+		}
+```
