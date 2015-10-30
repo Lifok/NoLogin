@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+
+group = 'fr.utopics.nologin'
+version = '1.0.0-BETA'
+archivesBaseName = 'nologin'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "http://theshark34.github.io/maven/"
+    }
+}
+
+dependencies {
+    compile 'org.json:json:20150729'
+    compile 'fr.theshark34.openauth:openauth:1.0.0-SNAPSHOT'
+}
+
+// The fatjar task
+task fatJar(type: Jar) {
+    baseName = project.name
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'fr.utopics'
+            artifactId 'nologin'
+            version = '1.0.0-BETA'
+
+            from components.java
+        }
+    }
+}
