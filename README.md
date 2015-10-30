@@ -1,6 +1,6 @@
 ![NoLogin Logo](http://image.noelshack.com/fichiers/2015/44/1446068416-nologin.png)
 
-This Library is an extension of TheShark's OpenAuth Library. 
+This Library is an extension of TheShark34's OpenAuth Library. 
 It allow to retrieve minecraft Accounts logged and keep the session valid.
 
 It is really simple use, first you need to retrieve accounts, then validate them.
