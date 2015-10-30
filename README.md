@@ -46,7 +46,9 @@ First, you need to retrieve player skins.
 Then, you draw them (using Graphics for exemple) :
 
 ```java
-		for(int i =0; i < playerHeads.length; i++) {
-			g.drawImage(playerHeads[i], x + i * size, y, (x + size) + i * size, y + size, 8, 8, 16, 16, this);
+		for(int i =0; i < playerSkins.length; i++) {
+			g.drawImage(playerSkins[i], x + i * size, y, (x + size) + i * size, y + size, 8, 8, 16, 16, this);
 		}
 ```
+
+The head's quad on the skin is [8, 8, 16, 16]
