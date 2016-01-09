@@ -31,4 +31,4 @@ Accounts contains all the variables you need for a proper launcher use.
 ###Bonus : Get the Player head for each Account and draw them.
 
 You can directly access minecraft skins, but there is an easier way.
-Get a loot here -> https://minotar.net/
+Get a look here -> https://minotar.net/
