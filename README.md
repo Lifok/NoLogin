@@ -28,36 +28,7 @@ for(Account acc : accounts)
 
 Accounts contains all the variables you need for a proper launcher use.
 
-###Bonus : Get the Player skin for each Account and draw Heads.
+###Bonus : Get the Player head for each Account and draw them.
 
-First, you need to retrieve player skins.
-
-```java
-	private Image[] playerSkins;
-
-	private void loadPlayersSkins() 
-	{
-		playerSkins = new Image[frame.getAccounts().size()];
-		for(int i = 0; i < frame.getAccounts().size(); i++) {
-			try 
-			{
-				URL url = new URL("http://skins.minecraft.net/MinecraftSkins/" + frame.getAccounts().get(i).getDisplayName() + ".png");
-				playerSkins[i] = ImageIO.read(url);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-```
-
-Then, you draw them (using Graphics for exemple) :
-
-```java
-		for(int i =0; i < playerSkins.length; i++) {
-			g.drawImage(playerSkins[i], x + i * size, y, (x + size) + i * size, y + size, 8, 8, 16, 16, this);
-		}
-```
-
-The head's quad on the skin is [8, 8, 16, 16]
+You can directly access minecraft skins, but there is an easier way.
+Get a loot here -> https://minotar.net/
