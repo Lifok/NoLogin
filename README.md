@@ -3,10 +3,19 @@
 This Library is an extension of TheShark34's OpenAuth Library. 
 It allow to retrieve minecraft Accounts logged and keep the session valid.
 
-It is really simple use, first you need to retrieve accounts, then validate them.
+It is really simple use, first you to init the NoLogin, it will return a UserNotLoggedException if the user is not connected on the official launcher.
 
 ```java
 NoLogin noLogin = new NoLogin();
+try {
+	noLogin.init();
+} catch (UserNotLoggedException) {
+	//doStuff, but do not ask for credentials, it is not allowed by mojang
+}
+```
+Then, you need to validate the accounts, depend on if you want multiple accounts gestion or single account gestion, here is the way :
+
+```java
 List<Account> accounts = noLogin.getAccountManager().getAccounts();
 for(Account acc : accounts) 
 	{
