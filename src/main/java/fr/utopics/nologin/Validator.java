@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with NoLogin.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.utopics.nologin.auth;
+package fr.utopics.nologin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +29,7 @@ import fr.theshark34.openauth.AuthPoints;
 import fr.theshark34.openauth.AuthenticationException;
 import fr.theshark34.openauth.Authenticator;
 import fr.theshark34.openauth.model.response.RefreshResponse;
-import fr.utopics.nologin.account.Account;
+import fr.utopics.nologin.auth.Account;
 import fr.utopics.nologin.util.Utilities;
 
 public class Validator {
@@ -37,7 +37,7 @@ public class Validator {
 	private String clientToken;
 	private Authenticator authenticator = new Authenticator(Authenticator.MOJANG_AUTH_URL, AuthPoints.NORMAL_AUTH_POINTS);
 
-	public Validator() 
+	protected Validator() 
 	{
 		super();
 	}

@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with NoLogin.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.utopics.nologin.account;
+package fr.utopics.nologin.auth;
 
 public class Account
 {

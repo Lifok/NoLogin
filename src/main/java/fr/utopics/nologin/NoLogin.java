@@ -18,8 +18,7 @@
  */
 package fr.utopics.nologin;
 
-import fr.utopics.nologin.account.AccountManager;
-import fr.utopics.nologin.auth.Validator;
+import fr.utopics.nologin.exception.UserNotLoggedException;
 
 public class NoLogin 
 {
@@ -27,8 +26,13 @@ public class NoLogin
 	private Validator validator;
 
 	public NoLogin() {
+		super();
 		accountManager = new AccountManager();
 		validator = new Validator();
+	}
+	
+	public void init() throws UserNotLoggedException {
+		accountManager.retrieveAccounts();
 	}
 	
 	public AccountManager getAccountManager() 

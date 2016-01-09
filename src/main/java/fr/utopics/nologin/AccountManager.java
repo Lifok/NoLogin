@@ -16,29 +16,31 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with NoLogin.  If not, see <http://www.gnu.org/licenses/>.
  */
-package fr.utopics.nologin.account;
+package fr.utopics.nologin;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONObject;
 
+import fr.utopics.nologin.auth.Account;
+import fr.utopics.nologin.exception.UserNotLoggedException;
 import fr.utopics.nologin.util.Utilities;
 
 public class AccountManager 
 {
 	private List<Account> accounts;
 
-	public AccountManager()
+	protected AccountManager()
 	{
 		super();
 		accounts = new ArrayList<Account>();
-		retrieveAccounts();
 	}
 
-	private void retrieveAccounts() 
+	protected void retrieveAccounts() throws UserNotLoggedException 
 	{
 		File profiles = new File(Utilities.getMinecraftDirectory(), "launcher_profiles.json");
 		try 
@@ -56,9 +58,9 @@ public class AccountManager
 				accounts.add(new Account(obj.getString("uuid"), obj.getString("displayName"), obj.getString("accessToken"), obj.getString("userid"), obj.getString("username")));
 			}
 		} 
-		catch (Exception e)
+		catch (IOException e)
 		{ 
-			e.printStackTrace(); 
+			throw new UserNotLoggedException();
 		}
 	}
 	
