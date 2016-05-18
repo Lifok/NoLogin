@@ -19,7 +19,7 @@ Then, you need to validate the accounts, depend on if you want multiple accounts
 List<Account> accounts = noLogin.getAccountManager().getAccounts();
 for(Account acc : accounts) 
 	{
-		if(noLogin.getValidator().validate(acc))
+		if(noLogin.getValidator().validateAccount(acc))
 		{
 		yourAccountList.add(acc);
   		}
